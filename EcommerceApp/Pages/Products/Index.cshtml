@@ -6,74 +6,110 @@
 }
 
 <h1>Product Listings</h1>
-<form method="get" action="">
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search products" name="SearchTerm" value="@Model.SearchTerm">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit">Search</button>
-        </div>
-    </div>
-</form>
+<div class="row mt-5">
+    <div class="col-3" >
+        <h3> Filter result </h3>
+        <form class="row flex flex-column g-3">
+            <div class="col-auto">
+                <label for="productName" class="visually-hidden">Nom produit</label>
+                <input type="text" id="productName" class="form-control col-auto  " placeholder="Search products" name="SearchTerm" value="@Model.SearchedProduct">
 
-<p>
-    <a class="btn btn-primary" asp-page="Create">Create New </a>
-</p>
-<table class="table  table-striped border-1 border-secondary">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Products[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Products[0].Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Products[0].Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Products[0].Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Products[0].Image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Products[0].Category)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Products) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
+            </div>
+            <div>
+                <label for="Categorie" class="visually-hidden">Categorie</label>
+                <select name="SelectedCategory" id="Categorie" class="form-select" aria-label="Default select example">
+                    <option selected>
+                        Select a categoryy
+
+                    </option>
+                    @foreach (var item in Model.Category)
+                    {
+                        <option value="@item.CategoryID">@item.Description</option>
+                    }
+                    <option value="0" selected>
+                        All
+
+                    </option>
+
+                </select>
+            </div>
+            <div class=" ">
+                <button  type="submit" style="width:100%" class="btn btn-primary mb-3">Search</button>
+            </div>
+        </form>
+
+    </div>
+    <div class="col-xl-9">
+        <div class="row">
+            <div class="col-8"><h3> Manage Product </h3></div>
+            <div class="col-4"><a class="btn btn-primary" asp-page="Create" style="width:100%" >Add New Product</a></div>
+
+        </div>
+        
+        <table class="table mt-3  table-bordered border-secondary table-striped border-1 border-secondary">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Products[0].Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Products[0].Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Products[0].Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Products[0].Quantity)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Products[0].Image)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Products[0].Category)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Products)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+                        <td>
+            <dd class="col-sm-10">
+                <a href="@Url.Content(@item.Image)">
+                    <img src="@Url.Content(@item.Image)" style="max-height:120px" alt="Product Image" class="img-fluid" />
+                </a>
+            </dd>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                            @Html.DisplayFor(modelItem => item.Category.CategoryID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                    <dd class="col-sm-10">
-                        <a href="@Url.Content(@item.Image)">
-                            <img src="@Url.Content(@item.Image)" style="max-height:120px" alt="Product Image" class="img-fluid" />
-                        </a>
-                    </dd>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryID)
-            </td>
-            <td>
-                <a class="btn btn-warning" asp-page="./Edit" asp-route-id="@item.ProductID"> <span class="bi bi-heart"></span>
- Edit</a> |
+                <a class="btn btn-warning" asp-page="./Edit" asp-route-id="@item.ProductID">
+                    Edit
+                </a> |
                 <a class="btn btn-info" asp-page="./Details" asp-route-id="@item.ProductID">Details</a> |
                 <a class="btn btn-danger " asp-page="./Delete" asp-route-id="@item.ProductID">Delete</a>
             </td>
-        </tr>
-}
-    </tbody>
-</table>
+            </tr>
+                }
+        </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+

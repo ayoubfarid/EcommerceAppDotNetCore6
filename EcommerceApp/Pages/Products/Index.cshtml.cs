@@ -19,33 +19,55 @@ namespace EcommerceApp.Pages.Products
         }
 
         public IList<Product> Products { get; set; } = default!;
+        public IList<Category> Category { get; set; } = default!;
         [BindProperty(SupportsGet = true)]
-        public string SearchTerm { get; set; }
+        public string SearchedProduct { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string SelectedCategory { get; set; }
 
         public async Task OnGetAsync()
         {
             IQueryable<Product> productsQuery = _context.Products.Include(p => p.Category);
+            ViewData["SelectedCategory"] = SelectedCategory;
 
-            if (!string.IsNullOrEmpty(SearchTerm))
+            if (_context.Categories != null)
             {
-              /*  productsQuery = productsQuery.Where(p =>
-                    p.Name.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase)
-                );*/
+                Category = await _context.Categories.ToListAsync();
+            }
+          
+
+            if (!string.IsNullOrEmpty(SearchedProduct))
+            {
               
+                
                 Products = await productsQuery.Where(p =>
 
-                EF.Functions.Like(p.Name, $"%{SearchTerm}%"))
+                EF.Functions.Like(p.Name, $"%{SearchedProduct}%"))
                 .ToListAsync();
 
-            }else
+            }
+            else if (!string.IsNullOrEmpty(SelectedCategory))
+            {
+                int categoryId = int.Parse(SelectedCategory);
+                if(categoryId > 0)
+                {
+                    // Filter products by category ID
+                                    Products = await productsQuery
+                                        .Where(p => p.CategoryID == categoryId)
+                                        .ToListAsync();
+                }else
+                {
+                    Products = await productsQuery.ToListAsync();
+                }
+
+                
+            }
+            else
 
             Products = await productsQuery.ToListAsync();
+
+            Console.WriteLine(SelectedCategory);
             
-            // Print the products to the console
-            foreach (var product in Products)
-            {
-                Console.WriteLine($"Product ID: {product.ProductID}, Name: {product.Name}, Description: {product.Description}");
-            }
         }
     }
 }
