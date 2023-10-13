@@ -12,16 +12,13 @@
         <form class="row flex flex-column g-3">
             <div class="col-auto">
                 <label for="productName" class="visually-hidden">Nom produit</label>
-                <input type="text" id="productName" class="form-control col-auto  " placeholder="Search products" name="SearchTerm" value="@Model.SearchedProduct">
+                <input type="text" id="productName" class="form-control col-auto  " placeholder="Search products" name="SearchedProduct" value="@Model.SearchedProduct">
 
             </div>
             <div>
                 <label for="Categorie" class="visually-hidden">Categorie</label>
                 <select name="SelectedCategory" id="Categorie" class="form-select" aria-label="Default select example">
-                    <option selected>
-                        Select a categoryy
-
-                    </option>
+                    
                     @foreach (var item in Model.Category)
                     {
                         <option value="@item.CategoryID">@item.Description</option>

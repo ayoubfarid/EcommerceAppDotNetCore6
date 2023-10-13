@@ -5,6 +5,74 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4 mt-4  " style=" text-align:center  " ><strong >Bienvenue Dans Amazon Store</strong> </h1>
+  
+    <div class="mt-4" >
+        <div class="row mt-5">
+            <div class="col-3 " style="padding:16px;border:solid 2px orange;background-color:white;border-radius:20px;">
+                <h3 style="text-align:start" > Filter result </h3>
+                <form class="row flex flex-column g-3">
+                    <div class="col-auto">
+                        <label for="productName" class="visually-hidden">Nom produit</label>
+                        <input type="text" id="productName" class="form-control col-auto  " placeholder="Search products" name="SearchTerm" value="@Model.SearchedProduct">
+
+                    </div>
+                    <div>
+                        <label for="Categorie" class="visually-hidden">Categorie</label>
+                        <select name="SelectedCategory" id="Categorie" class="form-select" aria-label="Default select example">
+                            
+                            @foreach (var item in Model.Category)
+                            {
+                                <option value="@item.CategoryID">@item.Description</option>
+                            }
+                            <option value="0" selected>
+                                All
+
+                            </option>
+
+                        </select>
+                    </div>
+                    <div class=" ">
+                        <button type="submit" style="width:100%" class="btn btn-warning mb-3">Search</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-xl-9">
+                <div class="container">
+                    <div class="row">
+                        @foreach (var product in Model.Products)
+                        {
+                            <div class="col-md-4">
+                                <div class="card ">
+                                    <img src="@Url.Content(@product.Image)" style="width:50%;" alt="Product Image" class="img-fluid" />
+
+                                    <div class="card-body flex-column align-items-center justify-content-center ">
+                                        <h5 class="card-title " style="font-weight:bold">@product.Name</h5>
+                                        <p class="card-text">@product.Description</p>
+                                        <p class="card-text">Price: $@product.Price</p>
+                                        <a  style="width:100%" asp-page="./Products/Details" asp-route-id="@product.ProductID" class="btn btn-warning ">View Details</a>
+                                       
+                                        <form method="post">
+                                            <input asp-for="ProductId" type="hidden" value="@product.ProductID" class="form-control"   />
+                                            <button style="width:100%" type="submit"  class="btn btn-outline-warning mt-2 ">Add to cart</button>
+
+                                        </form>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+  
+
+
+   
 </div>

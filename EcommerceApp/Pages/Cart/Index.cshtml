@@ -1,0 +1,36 @@
+﻿@page
+@model EcommerceApp.Pages.Cart.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Card Listing</h1>
+
+<div class="col-xl-9 mt-5">
+    <div class="container">
+        <div class="row">
+            @foreach (var product in Model.Products)
+            {
+                <div class="col-md-4">
+                    <div class="card ">
+                        <img src="@Url.Content(@product.Image)" style="width:50%;" alt="Product Image" class="img-fluid" />
+
+                        <div class="card-body flex-column align-items-center justify-content-center ">
+                            <h5 class="card-title " style="font-weight:bold">@product.Name</h5>
+                            <p class="card-text">@product.Description</p>
+                            <p class="card-text">Price: $@product.Price</p>
+                            <a style="width:100%" asp-page="./Products/Details" asp-route-id="@product.ProductID" class="btn btn-warning ">View Details</a>
+
+                            <form method="post">
+                                <button style="width:100%" type="submit" class="btn btn-outline-warning mt-2 ">Add to cart</button>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

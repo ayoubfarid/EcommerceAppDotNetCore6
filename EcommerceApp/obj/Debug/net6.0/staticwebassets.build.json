@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TsP6PNhQGccr/O84aYrfB48Bx5yNFsQvxxDba+C0Ib8=",
+  "Hash": "Ee9mzK8vzEZKW9PkTDnCFk4Dkfb29h4XMMnkPx+Hz3I=",
   "Source": "EcommerceApp",
   "BasePath": "_content/EcommerceApp",
   "Mode": "Default",
@@ -85,6 +85,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\pc\\source\\repos\\EcommerceApp\\EcommerceApp\\wwwroot\\images\\6814abda-9c7d-49dd-ab83-909b0fdb29a1_casque.jpg",
+      "SourceId": "EcommerceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pc\\source\\repos\\EcommerceApp\\EcommerceApp\\wwwroot\\",
+      "BasePath": "_content/EcommerceApp",
+      "RelativePath": "images/6814abda-9c7d-49dd-ab83-909b0fdb29a1_casque.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\6814abda-9c7d-49dd-ab83-909b0fdb29a1_casque.jpg"
+    },
+    {
       "Identity": "C:\\Users\\pc\\source\\repos\\EcommerceApp\\EcommerceApp\\wwwroot\\images\\96d95380-e7a9-47c4-a27f-09d003863ecc_oppo.png",
       "SourceId": "EcommerceApp",
       "SourceType": "Discovered",
@@ -117,6 +134,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\ba878fe7-c1a8-4b43-b4ff-7ed5b5d6e588_oppo.png"
+    },
+    {
+      "Identity": "C:\\Users\\pc\\source\\repos\\EcommerceApp\\EcommerceApp\\wwwroot\\images\\e2dd8ccb-23be-4c4d-934c-1d745333f5ca_casque.jpg",
+      "SourceId": "EcommerceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pc\\source\\repos\\EcommerceApp\\EcommerceApp\\wwwroot\\",
+      "BasePath": "_content/EcommerceApp",
+      "RelativePath": "images/e2dd8ccb-23be-4c4d-934c-1d745333f5ca_casque.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\e2dd8ccb-23be-4c4d-934c-1d745333f5ca_casque.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\pc\\source\\repos\\EcommerceApp\\EcommerceApp\\wwwroot\\images\\logo-amazon.png",
+      "SourceId": "EcommerceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pc\\source\\repos\\EcommerceApp\\EcommerceApp\\wwwroot\\",
+      "BasePath": "_content/EcommerceApp",
+      "RelativePath": "images/logo-amazon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logo-amazon.png"
     },
     {
       "Identity": "C:\\Users\\pc\\source\\repos\\EcommerceApp\\EcommerceApp\\wwwroot\\js\\site.js",
