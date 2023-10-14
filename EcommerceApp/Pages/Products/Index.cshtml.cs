@@ -27,7 +27,7 @@ namespace EcommerceApp.Pages.Products
 
         public async Task OnGetAsync()
         {
-            
+
             IQueryable<Product> productsQuery = _context.Products.Include(p => p.Category);
             ViewData["SelectedCategory"] = SelectedCategory;
             int categoryId;
@@ -42,9 +42,9 @@ namespace EcommerceApp.Pages.Products
             {
                 Category = await _context.Categories.ToListAsync();
             }
-          
 
-           if (string.IsNullOrEmpty(SearchedProduct) &&  categoryId > 0)
+
+            if (string.IsNullOrEmpty(SearchedProduct))
             {
                 if (categoryId == 0)
                 {
@@ -61,11 +61,11 @@ namespace EcommerceApp.Pages.Products
                                         .ToListAsync();
 
                 }
-                
+
             }
-            else if (!string.IsNullOrEmpty(SearchedProduct) )
+            else if (!string.IsNullOrEmpty(SearchedProduct))
             {
-                 if (categoryId == 0)
+                if (categoryId == 0)
                 {
                     Products = await productsQuery.Where(p =>
 
@@ -74,19 +74,23 @@ namespace EcommerceApp.Pages.Products
                 }
                 else
                 {
-                // Filtrer les produits par ID de catégorie et par nom de produit
-                Products = await productsQuery
-                    .Where(p => p.CategoryID == categoryId && EF.Functions.Like(p.Name, $"%{SearchedProduct}%"))
-                    .ToListAsync();
+                    // Filtrer les produits par ID de catégorie et par nom de produit
+                    Products = await productsQuery
+                        .Where(p => p.CategoryID == categoryId && EF.Functions.Like(p.Name, $"%{SearchedProduct}%"))
+                        .ToListAsync();
                 }
-                
-            }
-            else
-            Products = await productsQuery.ToListAsync();
 
+            }
+            /* else
+             Products = await productsQuery.ToListAsync();
+            */
             Console.WriteLine(SelectedCategory);
             Console.WriteLine(SearchedProduct);
-            
+
         }
+    
+    
+    
     }
+
 }

@@ -9,12 +9,12 @@
   
     <div class="mt-4" >
         <div class="row mt-5">
-            <div class="col-3 " style="padding:16px;border:solid 2px orange;background-color:white;border-radius:20px;">
+            <div class="col-3 " style="max-height:250px;min-height:250px;padding:16px;border:solid 2px orange;background-color:white;border-radius:20px;">
                 <h3 style="text-align:start" > Filter result </h3>
                 <form class="row flex flex-column g-3">
                     <div class="col-auto">
                         <label for="productName" class="visually-hidden">Nom produit</label>
-                        <input type="text" id="productName" class="form-control col-auto  " placeholder="Search products" name="SearchTerm" value="@Model.SearchedProduct">
+                        <input type="text" id="productName" class="form-control col-auto  " placeholder="Search products" name="SearchedProduct" value="@Model.SearchedProduct">
 
                     </div>
                     <div>
@@ -44,12 +44,21 @@
                         @foreach (var product in Model.Products)
                         {
                             <div class="col-md-4">
-                                <div class="card ">
-                                    <img src="@Url.Content(@product.Image)" style="width:50%;" alt="Product Image" class="img-fluid" />
+                                <div class="card m-1 " style="min-height:450px;max-height:450px;">
+                                    <img src="@Url.Content(@product.Image) "   style="max-width:100%;min-height:50%;margin:auto" alt="Product Image" class="img-fluid mt-2" />
 
                                     <div class="card-body flex-column align-items-center justify-content-center ">
                                         <h5 class="card-title " style="font-weight:bold">@product.Name</h5>
-                                        <p class="card-text">@product.Description</p>
+                                        <p class="card-text"  style="font-size:14px;">
+                                            @if (!string.IsNullOrEmpty(product.Description) && product.Description.Length > 60)
+                                            {
+                                                @product.Description.Substring(0, 60)
+                                            }
+                                            else
+                                            {
+                                                @product.Description
+                                            }
+                                        </p>
                                         <p class="card-text">Price: $@product.Price</p>
                                         <a  style="width:100%" asp-page="./Products/Details" asp-route-id="@product.ProductID" class="btn btn-warning ">View Details</a>
                                        

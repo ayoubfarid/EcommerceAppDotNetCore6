@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ee9mzK8vzEZKW9PkTDnCFk4Dkfb29h4XMMnkPx+Hz3I=",
+  "Hash": "A6CZwA2lCUeWtkBrPJQa88v35sfBcMkKch8uKs+X3/E=",
   "Source": "EcommerceApp",
   "BasePath": "_content/EcommerceApp",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\pc\\source\\repos\\EcommerceApp\\EcommerceApp\\wwwroot\\images\\159613d2-6031-425f-aa30-2b537b1bd85c_81ST974KXVL._AC_SX679_.jpg",
+      "SourceId": "EcommerceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pc\\source\\repos\\EcommerceApp\\EcommerceApp\\wwwroot\\",
+      "BasePath": "_content/EcommerceApp",
+      "RelativePath": "images/159613d2-6031-425f-aa30-2b537b1bd85c_81ST974KXVL._AC_SX679_.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\159613d2-6031-425f-aa30-2b537b1bd85c_81ST974KXVL._AC_SX679_.jpg"
     },
     {
       "Identity": "C:\\Users\\pc\\source\\repos\\EcommerceApp\\EcommerceApp\\wwwroot\\images\\6814abda-9c7d-49dd-ab83-909b0fdb29a1_casque.jpg",

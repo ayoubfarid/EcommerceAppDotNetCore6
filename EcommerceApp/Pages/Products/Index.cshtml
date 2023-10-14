@@ -5,10 +5,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Product Listings</h1>
+<h1 class="mt-4" > Product Listings</h1>
 <div class="row mt-5">
-    <div class="col-3" >
-        <h3> Filter result </h3>
+    <div class="col-3 " style="max-height:250px;min-height:250px;padding:16px;border:solid 2px orange;background-color:white;border-radius:20px;">
+        <h3 style="text-align:start"> Filter result </h3>
         <form class="row flex flex-column g-3">
             <div class="col-auto">
                 <label for="productName" class="visually-hidden">Nom produit</label>
@@ -18,7 +18,7 @@
             <div>
                 <label for="Categorie" class="visually-hidden">Categorie</label>
                 <select name="SelectedCategory" id="Categorie" class="form-select" aria-label="Default select example">
-                    
+
                     @foreach (var item in Model.Category)
                     {
                         <option value="@item.CategoryID">@item.Description</option>
@@ -31,7 +31,7 @@
                 </select>
             </div>
             <div class=" ">
-                <button  type="submit" style="width:100%" class="btn btn-primary mb-3">Search</button>
+                <button type="submit" style="width:100%" class="btn btn-warning mb-3">Search</button>
             </div>
         </form>
 
@@ -39,7 +39,7 @@
     <div class="col-xl-9">
         <div class="row">
             <div class="col-8"><h3> Manage Product </h3></div>
-            <div class="col-4"><a class="btn btn-primary" asp-page="Create" style="width:100%" >Add New Product</a></div>
+            <div class="col-4"><a class="btn btn-warning" asp-page="Create" style="width:100%">Add New Product</a></div>
 
         </div>
         
@@ -64,7 +64,7 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Products[0].Category)
                     </th>
-                    <th></th>
+                    <th>  Actions </th>
                 </tr>
             </thead>
             <tbody>
@@ -75,7 +75,14 @@
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Description)
+                            @if (!string.IsNullOrEmpty(@item.Description) && @item.Description.Length > 80)
+                            {
+                                @item.Description.Substring(0, 80)
+                            }
+                            else
+                            {
+                                @item.Description
+                            }
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Price)
@@ -94,12 +101,26 @@
                             @Html.DisplayFor(modelItem => item.Category.CategoryID)
             </td>
             <td>
-                <a class="btn btn-warning" asp-page="./Edit" asp-route-id="@item.ProductID">
-                    Edit
-                </a> |
-                <a class="btn btn-info" asp-page="./Details" asp-route-id="@item.ProductID">Details</a> |
-                <a class="btn btn-danger " asp-page="./Delete" asp-route-id="@item.ProductID">Delete</a>
-            </td>
+                <div class="row" >
+                    
+                    <div class="col-auto" >
+                        <a class="btn btn-warning" asp-page="./Edit" asp-route-id="@item.ProductID">
+                            Edit
+                        </a>
+                    </div>
+                    <div class="col-auto" >
+                        <a class="btn btn-info" asp-page="./Details" asp-route-id="@item.ProductID">Details</a>
+
+                    </div>
+                    <div class="col-auto" >
+                        <a class="btn btn-danger " asp-page="./Delete" asp-route-id="@item.ProductID">Delete</a>
+
+                    </div>
+                   
+                </div>
+
+                
+               </td>
             </tr>
                 }
         </tbody>

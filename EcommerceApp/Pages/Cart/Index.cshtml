@@ -23,7 +23,8 @@
                             <a style="width:100%" asp-page="./Products/Details" asp-route-id="@product.ProductID" class="btn btn-warning ">View Details</a>
 
                             <form method="post">
-                                <button style="width:100%" type="submit" class="btn btn-outline-warning mt-2 ">Add to cart</button>
+                                <input hidden type="text" name="ProductId" value="@product.ProductID"/>
+                                <button style="width:100%" type="submit" class="btn btn-outline-danger mt-2 "> Remove </button>
 
                             </form>
 
