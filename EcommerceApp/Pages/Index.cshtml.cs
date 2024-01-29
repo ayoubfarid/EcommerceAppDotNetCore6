@@ -96,7 +96,7 @@ namespace EcommerceApp.Pages
             // Retrieve the product based on the productId (fetch it asynchronously)
             var product = await _context.Products.FindAsync(ProductId);
             await Console.Out.WriteLineAsync("bla bla: " + product.Description);
-
+            
 
             if (product != null)
             {

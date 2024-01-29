@@ -12,13 +12,13 @@
     <hr />
 
     <div class="row" >
-    <div  class="col-xl-4" >
+        <div class="col-xl-4 " >
 
             <a href="@Url.Content(Model.Product.Image)">
-                <img src="@Url.Content(Model.Product.Image)" alt="Product Image" class="img-fluid" />
+                <img src="@Url.Content(Model.Product.Image)" style="border:solid 2px grey;border-radius:20px" alt="Product Image" class="img-fluid" />
             </a>
     </div>
-    <div  class="col-xl-8" >
+    <div  class="col-xl-8  border-1 border-secondary p-8 bg-light " style="border-radius:20px;padding:16px;">
         <h3>
                     @Html.DisplayFor(model => model.Product.Name)
            

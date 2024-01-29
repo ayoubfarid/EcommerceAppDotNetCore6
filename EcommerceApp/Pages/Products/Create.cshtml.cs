@@ -21,7 +21,7 @@ namespace EcommerceApp.Pages.Products
         public IActionResult OnGet()
         {
         //ViewData["CategoryID"] = new SelectList(_context.Categories, "CategoryID", "CategoryID");
-            ViewData["CategoryID"] = new SelectList(_context.Categories, "CategoryID", "Name");
+            ViewData["CategoryID"] = new SelectList(_context.Categories, "CategoryID", "CategoryID");
 
             // ViewData["CategoryName"] = new SelectList(_context.Categories, "Name", "Name");
             return Page();

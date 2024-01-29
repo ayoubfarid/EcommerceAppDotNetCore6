@@ -13,7 +13,7 @@ builder.Services.AddDbContext<EcomDbContext>(options =>
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(2);
+    options.IdleTimeout = TimeSpan.FromMinutes(5);
 
 });
 // Register CartService as a scoped service
